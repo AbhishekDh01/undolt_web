@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tutor Reg</title>
+</head>
+<body>
+
+	<form action="tutorRegBack.php" method="POST" style="text-align: center;" >
+		<h1>Tutor Reg</h1>
+		<input type="text" name="tName" placeholder="Name.." required="required">
+		<input type="email" name="tEmail" placeholder="email-id" required="required">
+
+		<br>
+		<p>Subject you want to applied for</p>
+		<input type="text" name="tsubject" placeholder="Enter with , seperated" required="required">
+		<br>
+		
+		<input type="password" id="tPass" name="tPass" placeholder="password" required="required" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$" title="must content atleast 1 upper & 1 lower character and 1 number & 1 special character, min length : 8">
+
+		<input type='text' id="matchText" name="confirm" placeholder="Confirm Password.." required="required" >
+
+		<input type="number" name="tContact" placeholder="Contact No." required="required">
+
+		<input type="submit" name="tReg" value="Register">
+
+		<p>Alread Register? <a href="tutorLogin.php">Login here</a></p>
+	</form>
+</body>
+</html>
+
+<script>
+	var password = document.getElementById("sPass"), confirm_password = document.getElementById("matchText");
+
+function validatePassword(){
+  if(password.value != confirm_password.value) {
+    confirm_password.setCustomValidity("Passwords Don't Match");
+  } else {
+    confirm_password.setCustomValidity('');
+  }
+}
+
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
+</script>

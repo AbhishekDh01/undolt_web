@@ -1,0 +1,60 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Assignment Uploading</title>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+
+	<h1>Assignment Uploading</h1>
+	<form action="assignmentPostBack.php" method="post" enctype="multipart/form-data" style="text-align: center;" class="upload-form">
+				
+
+			<input type="text" name="subject" placeholder="Subject Name" required="required">
+
+			<input type="text" name="topic" placeholder="Topic Name" required="required">
+
+	<!-- 		<input type="text" name="question" placeholder="Write your Question/Assignment" required="required" > -->
+
+			<input type="text" name="info" placeholder="Enter as such as you can give information about your Assignment/question, books, paper etc." required="required">
+
+			<p> Deadline : 
+			<input type="date" name="date" placeholder="Deadline" >
+			</p>
+
+			<p>
+			Add assignment image/pdf, books pdf, previous assignment (optional) Max file: 4 <input type="file" name="files[]" class="upload-file" data-max-size="8388608" multiple >
+			</p>
+			
+			<input type="submit" name="AssignSubmit" value="Submit">
+		
+	</form>
+
+</body>
+</html>
+
+<script>
+$(function(){
+    var fileInput = $('.upload-file');
+    var maxSize = fileInput.data('max-size');
+    $('.upload-form').submit(function(e){
+        if(fileInput.get(0).files.length<5){
+            var fileSize = fileInput.get(0).files[0].size; // in bytes
+            if(fileSize>maxSize){
+                alert('Error : file size is more then 8MB ');
+                return false;
+            }else{
+                
+            }
+        }else{
+            alert('Files are more than 4');
+            return false;
+        }
+
+    });
+});
+    </script>
+
+
